@@ -15,6 +15,8 @@ function getKeyVaultSecret(credentials) {
     return keyVaultClient.getSecret(KEY_VAULT_URI, SECRET_NAME, "");
 }
 
+var port = process.env.PORT || 9090;
+
 http.createServer(function(req, res) {
     getKeyVaultCredentials().then(
         getKeyVaultSecret
@@ -26,4 +28,7 @@ http.createServer(function(req, res) {
         res.write(err);
         res.end();
     })
-}).listen(9090);
+}).listen(port);
+
+
+console.log("Server running at http://localhost:%d", port);
