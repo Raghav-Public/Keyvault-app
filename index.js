@@ -1,4 +1,5 @@
 var http = require('http'); 
+var KeyVault = require('azure-keyvault');
 var msRestAzure = require("ms-rest-azure");
 
 var VAULT_URL = 'https://vault.azure.net';
