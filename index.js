@@ -17,6 +17,7 @@ var server = http.createServer(function(request, response) {
 // For public regions the resource name is Key Vault
 msRestAzure.loginWithAppServiceMSI({resource: 'https://vault.azure.net'}).then( (credentials) => {
     credentials.getToken(function(token) {
+        console.log("inside gettoken");
         console.log(token);
         const keyVaultClient = new KeyVault.KeyVaultClient(token);
 
